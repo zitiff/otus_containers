@@ -1,0 +1,8 @@
+
+class SerialContainer {
+public:
+	
+
+private:
+
+};
