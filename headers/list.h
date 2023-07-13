@@ -1,9 +1,0 @@
-
-class ListContainer {
-
-public:
-	
-
-private:
-
-};
