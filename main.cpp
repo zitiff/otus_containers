@@ -1,10 +1,12 @@
 #include "sequential.cpp"
+#include "linkedlist.cpp"
 #pragma once
 
 int main() {
 	// 1. создание объекта контейнера дл€ хранени€ объектов типа int
 
 	SequentialContainer<int> SeqContainer;
+	std::cout << "Sequential Container was created" << std::endl;
 
 	// 2. добавление в контейнер дес€ти элементов (0, 1 Е 9)
 
@@ -57,6 +59,63 @@ int main() {
 
 	SeqContainer.printContainer();
 
+
+
+	// 1. создание объекта контейнера спискового типа дл€ хранени€ объектов типа int
+
+	LinkedListContainer<int> LinkedListContainer;
+	std::cout << "\nLinked List Container was created" << std::endl;
+
+	// 2. добавление в контейнер дес€ти элементов (0, 1 Е 9)
+
+	for (int value = 0; value < 10; value++)
+	{
+		LinkedListContainer.push_back(value);
+	}
+
+	// 3. вывод содержимого контейнера на экран
+
+	LinkedListContainer.printContainer();
+
+	// 4. вывод размера контейнера на экран (ожидаемый результат : 10)
+
+	std::cout << LinkedListContainer.size() << std::endl;
+
+	// 5. удаление третьего(по счЄту), п€того и седьмого элементов
+
+	LinkedListContainer.erase(2);
+	LinkedListContainer.erase(3);
+	LinkedListContainer.erase(4);
+
+
+	// 6. вывод содержимого контейнера на экран (ожидаемый результат : 0, 1, 3, 5, 7, 8, 9)
+
+	LinkedListContainer.printContainer();
+
+	// 7. добавление элемента 10 в начало контейнера
+
+	LinkedListContainer.insert(0, 10);
+
+	// 8. вывод содержимого контейнера на экран (ожидаемый результат : 10, 0, 1, 3, 5, 7, 8, 9)
+
+	LinkedListContainer.printContainer();
+
+	// 9. добавление элемента 20 в середину контейнера
+
+	int _index = LinkedListContainer.size() / 2;
+	LinkedListContainer.insert(_index, 20);
+
+	//	10. вывод содержимого контейнера на экран (ожидаемый результат : 10, 0, 1, 3, 20, 5, 7, 8, 9)
+
+	LinkedListContainer.printContainer();
+
+	// 11. добавление элемента 30 в конец контейнера
+
+	LinkedListContainer.push_back(30);
+
+	//12. вывод содержимого контейнера на экран	(ожидаемый результат : 10, 0, 1, 3, 20, 5, 7, 8, 9, 30)
+
+	LinkedListContainer.printContainer();
 
 	return 0;
 }
