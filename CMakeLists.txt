@@ -1,7 +1,24 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.1)
 
-project(06.homework)
+project(homework6)
 
-add_executable(statistics "sequential.cpp" "linkedlist.cpp" "main.cpp")
-set_target_properties(statistics PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)
+add_executable(homework6 "sequential.cpp" 
+    "linkedlist.cpp" 
+    "main.cpp"
+)
 
+if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR
+    CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    target_compile_options(homework6 PRIVATE 
+        -g
+        -Wall
+        -Wextra
+        -Werror
+        -pedantic
+    )
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    target_compile_options(homework6 PRIVATE
+        /EHsc
+        /W4
+    )
+endif()
